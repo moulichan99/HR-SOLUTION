@@ -1,0 +1,13 @@
+# Complete the jimOrders function below.
+def jimOrders(orders):
+    h=len(orders)
+    w=2
+    ret=[]
+    a=[ [0 for x in range(w)] for y in range(h)] # w - width h- height 
+    for i in range(0,len(orders)):
+        a[i][0]=int(orders[i][0])+int(orders[i][1]) # order + prep 
+        a[i][1]=i+1; # customer         
+    a.sort()
+    for i in range(0,len(a)):
+        ret.append(a[i][1])
+    return ret
