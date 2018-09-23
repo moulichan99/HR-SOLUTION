@@ -1,0 +1,19 @@
+int sherlockAndAnagrams(string s) {
+    map<string, int> m;
+    int len = s.length();
+        for (int i = 0; i < len; i++)
+        {
+            for (int l = 1; i + l - 1 < len; l++) // 
+            {
+                string t = s.substr(i, l); // select particular string (0,1) like that 
+                sort(t.begin(), t.end());  // arrange alphabets accordingly 
+                m[t]++;   // unique key leads to increement the value
+            
+            } 
+        }
+        long long ans = 0;
+        for (map<string, int>::iterator it = m.begin(); it != m.end(); ++it)
+            ans += (long long)(it->second) * (it->second - 1) / 2; // n*(n-1)/2 formula
+    
+    return ans;
+}
