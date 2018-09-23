@@ -1,0 +1,29 @@
+void checkMagazine(vector<string> magazine, vector<string> note) {
+unordered_map <string,int>::iterator it;
+    unordered_map <string,int> q1;
+    int count=0;
+     for(int i=0;i<magazine.size();i++)
+     {
+        it=q1.find(magazine[i]);
+        if(it==q1.end())
+            q1.insert(pair <string,int> (magazine[i],1));
+         else
+         q1[magazine[i]]++;  //  make increement equals to number of same strings
+     }
+     for(int i=0;i<note.size();i++)
+     {
+        it=q1.find(note[i]);
+        if(it==q1.end())
+        {
+            printf("No");
+            return;
+        }
+        else if(it->second == 0) {
+            printf("No");
+           return;
+       }
+         q1[note[i]]--; // decrements number of strings
+     }
+     printf("Yes");
+    
+}
