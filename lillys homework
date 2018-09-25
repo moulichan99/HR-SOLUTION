@@ -1,0 +1,25 @@
+def solution(arr):
+    b=arr[0:len(arr)] # creating another list
+    b.sort()# sort the list to compare and get orginal position
+    count=0
+    m={}
+    for i in range(len(arr)):
+        m[arr[i]]=i # using map for easy access of index values        
+    for i in range(0,len(arr)):
+        if arr[i] != b[i]: #comparing
+            count+=1
+            swap_pos=m[b[i]] # gives my orginal position of element
+            m[arr[i]]=m[b[i]]# update my map's value 
+            arr[i],arr[swap_pos]=b[i],arr[i] #swap my sortedlist value into current list 
+    return count
+    
+def lilysHomework(arr):
+    a=arr[0:len(arr)]
+    asc=solution(list(a))
+    dsc=solution(list(reversed(a))) # reversed list = sorted_list worst case
+    min_val=min(asc,dsc)
+    return min_val
+
+a=[2,5,3,1]
+c=lilysHomework(a)
+print(c)
