@@ -1,0 +1,27 @@
+Sample Input
+
+5 4
+1 2 3 4 5
+Sample Output
+
+5 1 2 3 4
+
+explanation 
+1 2 3 4 5 -> after 4 left rotations ---> 5 1 2 3 4 
+
+program code:
+#include <bits/stdc++.h>
+
+using namespace std;
+
+vector<string> split_string(string);
+
+// Complete the rotLeft function below.
+vector<int> rotLeft(vector<int> a, int d) {
+vector<int> b;
+    for(int i=0;i<a.size();i++)
+    {
+        b.push_back(a[(i+d)%a.size()]);    // dividig by modulus--> index exceeds over your array size ,it forced to start at in intial index.(rotated manner)   
+    }
+    return b;
+}
