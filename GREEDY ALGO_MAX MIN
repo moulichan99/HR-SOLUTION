@@ -1,0 +1,36 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n,k;
+    cin>>n>>k;
+    long long ar[n];
+    for(int i=0;i<n;i++){
+        cin>>ar[i];
+    }
+    sort(ar,ar+n);
+    for(int i=0;i<n-k+1;i++){
+        ar[i]=ar[i+k-1]-ar[i];
+    }    
+    sort(ar,ar+n-k+1);
+    cout<<ar[0];
+    
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
+
+
+
+// n - k + 1  -> no of possible subgroups.....( we only consider consequtive  groups not other groups....it will reduce some iterations 
+for eg: [1 3 4 6]
+[1 3]
+[3 4]
+[4 6]
+
+not an [1 4] [ 1 6] ....because no point in checking not consequtive groups it yield only a maximum value 
+........................................../////////////////////////////////................................/////////////////.......
